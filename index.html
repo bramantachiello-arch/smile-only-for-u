@@ -5,62 +5,49 @@ fell_in_love_with_u.html
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Untuk Kamu ❤️</title>
+<title>Untuk Kamu 💙</title>
 <style>
-  /* --- reset & font basic --- */
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto, 'Helvetica Neue', Arial}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
   body{
-    background: linear-gradient(180deg,#fff7f5 0%, #fff0f3 100%);
+    background:linear-gradient(180deg,#fff7f5 0%,#fff0f3 100%);
     display:flex;align-items:center;justify-content:center;padding:24px;color:#1f2937;
+    transition:background 1s ease,color 1s ease;
   }
-
-  /* --- card --- */
   .card{
     width:100%;max-width:420px;background:rgba(255,255,255,0.9);border-radius:18px;
     box-shadow:0 10px 30px rgba(15,23,42,0.12);padding:22px;text-align:center;
-    transform-origin:center;
+    transform-origin:center;transition:all 1s ease;
   }
-
   h1{margin:4px 0 6px;font-size:20px;letter-spacing:0.2px}
   p.lead{margin:0 0 14px;color:#475569;font-size:14px;line-height:1.45}
-
-  /* --- heart button --- */
   .heart-wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-direction:column}
   .heart-btn{
-    width:120px;height:120px;border-radius:999px;border:0;background:linear-gradient(180deg,#ff9db6,#ff6b8a);
-    display:flex;align-items:center;justify-content:center;font-size:46px;color:white;cursor:pointer;box-shadow:0 8px 22px rgba(255,107,138,0.28);
-    transition:transform .18s ease, box-shadow .18s ease;
+    width:120px;height:120px;border-radius:999px;border:0;
+    background:linear-gradient(180deg,#ff9db6,#ff6b8a);
+    display:flex;align-items:center;justify-content:center;
+    font-size:46px;color:white;cursor:pointer;
+    box-shadow:0 8px 22px rgba(255,107,138,0.28);
+    transition:transform .18s ease,box-shadow .18s ease;
   }
   .heart-btn:active{transform:scale(.96)}
   .counter{font-weight:700;color:#7f1d1d;margin-top:8px}
-
-  /* --- message area --- */
   .msg{
-    margin-top:16px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(15,23,42,0.02), rgba(15,23,42,0.01));
+    margin-top:16px;padding:14px;border-radius:12px;
+    background:linear-gradient(180deg,rgba(15,23,42,0.02),rgba(15,23,42,0.01));
     min-height:64px;display:flex;align-items:center;justify-content:center;
     color:#0f1724;font-size:15px;line-height:1.4;
   }
-
-  /* --- small btns --- */
   .row{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap}
   .btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:white;cursor:pointer;font-weight:600}
   .btn.ghost{background:transparent}
-
-  /* --- confetti hearts --- */
-  .confetti {position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
-  .confetti .c {position:absolute;font-size:18px;opacity:0;transform:translateY(0) rotate(0);}
-
-  /* --- subtle animations --- */
-  .pulse { animation: pulse .9s ease 0s 1; }
-  @keyframes pulse { 0%{transform:scale(1)} 50%{transform:scale(1.08)} 100%{transform:scale(1)} }
-
-  /* typing */
-  .typing { display:inline-block; border-right:2px solid rgba(15,23,42,0.12); padding-right:6px; animation: blink 1s steps(2, start) infinite; }
-  @keyframes blink { to { border-right-color: transparent } }
-
-  /* responsive */
-  @media (max-width:420px){
+  .confetti{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+  .confetti .c{position:absolute;font-size:18px;opacity:0;transform:translateY(0) rotate(0);}
+  .pulse{animation:pulse .9s ease 0s 1;}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+  .typing{display:inline-block;border-right:2px solid rgba(15,23,42,0.12);padding-right:6px;animation:blink 1s steps(2,start) infinite;}
+  @keyframes blink{to{border-right-color:transparent}}
+  @media(max-width:420px){
     .heart-btn{width:100px;height:100px;font-size:40px}
     .card{padding:18px;border-radius:14px}
   }
@@ -68,17 +55,17 @@ fell_in_love_with_u.html
 </head>
 <body>
   <div class="card" id="card">
-    <h1 id="title">Untuk Kamu</h1>
-    <p class="lead" id="subtitle">Klik hati ini kalau kamu lagi kangen, bete, atau butuh semangat kecil dari aku.</p>
+    <h1 id="title">Untuk Kamu 💛</h1>
+    <p class="lead" id="subtitle">Klik hatinya sepuluh kali ya, terus liat apa yang aku siapin buat kamu.</p>
 
-    <div class="heart-wrap">
+    <div class="heart-wrap" id="heartWrap">
       <button class="heart-btn" id="heartBtn">💛</button>
       <div class="counter" id="counterText">Klik hati ini • 0 kali</div>
     </div>
 
-    <div class="msg" id="msg">Halo, aku di sini. Klik sekali aja dulu, biar aku tunjukin sesuatu. :)</div>
+    <div class="msg" id="msg">Mulai dari satu klik dulu ya, pelan-pelan aja. :)</div>
 
-    <div class="row">
+    <div class="row" id="controls">
       <button class="btn" id="resetBtn">Reset</button>
       <button class="btn ghost" id="hintBtn">Butuh petunjuk?</button>
     </div>
@@ -87,16 +74,19 @@ fell_in_love_with_u.html
   <div class="confetti" id="confetti"></div>
 
 <script>
-/* ====== PERSONALIZE: ganti nama dan baris pesan di sini ====== */
-const loverName = "Aisya"; // ubah sesuai nama pacarmu
+const loverName = "Aisya";
 const messages = [
-  `Hai ${loverName} — kamu klik satu kali. Jadi aku ingat: cuma butuh satu senyum buat bikin hari jadi lebih ringan.`,
-  `Klik lagi ya? Aku jadi inget hal kecil: suaramu pas ketawa itu favoritku 😌.`,
-  `Oke, tiga kali. Aku serius nih: aku suka cara kamu nengok dunia—tenang tapi kuat.`,
-  `Empat kali? Wah, kamu serius bikin aku mikir, "gue beruntung punya kamu."`,
-  `Kelima klik — rahasiaku: aku pengin jadi alasan kamu tersenyum tiap hari.`
+  `Hai ${loverName} — satu klik pertama udah cukup buat bikin aku senyum.`,
+  `Dua klik, dan aku inget hal sederhana: kamu selalu punya cara bikin suasana tenang.`,
+  `Tiga kali klik, tapi rasanya kayak tiga musim yang semuanya indah karena ada kamu.`,
+  `Empat kali, dan aku sadar: perhatian kecilmu tuh nyenengin banget.`,
+  `Lima klik — udah setengah jalan, tapi aku masih pengin lebih deket sama kamu.`,
+  `Enam klik, aku mulai mikir: gimana ya bisa ketemu kamu tiap hari.`,
+  `Tujuh klik, aku mulai malu sendiri. Kok bisa kamu segitu nyamannya buat aku.`,
+  `Delapan klik, aku pengin bilang makasih — udah jadi orang yang bikin hari aku ringan.`,
+  `Sembilan klik, bentar lagi selesai. Tapi jujur, aku pengin momen ini gak cepet berakhir.`,
+  `Sepuluh klik! 🎉`
 ];
-/* ========================================================== */
 
 let count = 0;
 const heartBtn = document.getElementById('heartBtn');
@@ -106,104 +96,89 @@ const confettiBox = document.getElementById('confetti');
 const card = document.getElementById('card');
 const resetBtn = document.getElementById('resetBtn');
 const hintBtn = document.getElementById('hintBtn');
+const title = document.getElementById('title');
+const subtitle = document.getElementById('subtitle');
+const heartWrap = document.getElementById('heartWrap');
+const controls = document.getElementById('controls');
 
 function setCounterText(){
   counterText.textContent = `Klik hati ini • ${count} kali`;
 }
-
 function showTypingThen(text, cb){
   msg.innerHTML = `<span class="typing">...</span>`;
-  // simulate typing time by length
-  const t = Math.min(1400, 200 + text.length*25);
-  setTimeout(()=>{ msg.innerHTML = text; if(cb) cb(); }, t);
+  const t = Math.min(1400,200+text.length*25);
+  setTimeout(()=>{ msg.innerHTML = text; if(cb) cb(); },t);
 }
-
 function tinyBounce(){
   card.classList.add('pulse');
-  setTimeout(()=> card.classList.remove('pulse'), 900);
+  setTimeout(()=> card.classList.remove('pulse'),900);
 }
-
 function spawnConfetti(amt){
   for(let i=0;i<amt;i++){
-    const el = document.createElement('div');
-    el.className = 'c';
-    el.textContent = Math.random()>0.6 ? '💛' : '💗';
-    const size = 12 + Math.random()*18;
-    el.style.left = (10 + Math.random()*80) + '%';
-    el.style.top = (-10 - Math.random()*20) + '%';
-    el.style.fontSize = size + 'px';
+    const el=document.createElement('div');
+    el.className='c';
+    el.textContent=Math.random()>0.6?'💛':'💗';
+    const size=12+Math.random()*18;
+    el.style.left=(10+Math.random()*80)+'%';
+    el.style.top=(-10-Math.random()*20)+'%';
+    el.style.fontSize=size+'px';
     confettiBox.appendChild(el);
-    // animate
-    const fall = 2000 + Math.random()*1800;
+    const fall=2000+Math.random()*1800;
     el.animate([
-      { transform: `translateY(0) rotate(0)`, opacity:0 },
-      { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random()*360}deg)`, opacity:1 }
-    ], { duration: fall, easing:'cubic-bezier(.2,.7,.2,1)'});
-    // remove after
-    setTimeout(()=> el.remove(), fall + 200);
+      {transform:`translateY(0) rotate(0)`,opacity:0},
+      {transform:`translateY(${window.innerHeight+100}px) rotate(${Math.random()*360}deg)`,opacity:1}
+    ],{duration:fall,easing:'cubic-bezier(.2,.7,.2,1)'});
+    setTimeout(()=>el.remove(),fall+200);
   }
 }
 
-/* main interaction */
-heartBtn.addEventListener('click', ()=>{
+heartBtn.addEventListener('click',()=>{
+  if(count >= 10) return;
   count++;
   setCounterText();
   tinyBounce();
-  heartBtn.style.transform = 'scale(1.06)';
-  setTimeout(()=> heartBtn.style.transform = '', 140);
+  heartBtn.style.transform='scale(1.06)';
+  setTimeout(()=>heartBtn.style.transform='',140);
 
-  // staged messages
   if(count <= messages.length){
-    showTypingThen(messages[count-1], ()=>{
-      // small confetti on second and last click
-      if(count === 2) spawnConfetti(8);
-      if(count === messages.length) {
-        spawnConfetti(18);
-        // reveal special playful line after a moment
-        setTimeout(()=> {
-          msg.innerHTML = `Oh ya... sebelum lupa — coba deh bilang "yang" (sekali aja). Aku janji aku jawab <b>sayang</b>. 🤭`;
-        }, 800);
+    showTypingThen(messages[count-1],()=>{
+      if(count===10){
+        spawnConfetti(20);
+        setTimeout(()=>showFinalBlueTheme(),1800);
       }
     });
-  } else {
-    // beyond messages: playful flirty replies rotate
-    const extras = [
-      `Aku jadi kepikiran buat ngajak kamu makan bareng nanti. Siap gak? 😏`,
-      `Kamu bener-bener lucu kalo senyum. Aku gak bohong kok.`,
-      `Nanti kalau ketemu, aku traktir es krim — karena kamu pantas yang manis.`,
-      `Klik lagi? Atau kamu udahan dulu, sayang?`
-    ];
-    const pick = extras[(count - messages.length -1) % extras.length];
-    showTypingThen(pick);
-    if(count % 4 === 0) spawnConfetti(10);
   }
 });
 
-/* reset */
-resetBtn.addEventListener('click', ()=> {
-  count = 0;
+function showFinalBlueTheme(){
+  document.body.style.background='linear-gradient(180deg,#b3e5fc 0%,#90caf9 100%)';
+  card.style.background='rgba(255,255,255,0.8)';
+  title.textContent = `Untuk Kamu 💙`;
+  subtitle.innerHTML = ``;
+  heartWrap.style.display='none';
+  controls.style.display='none';
+  msg.innerHTML = `
+    <p style="color:#0d47a1;line-height:1.6;font-size:15px;">
+      Sepuluh kali klik, sepuluh kali juga aku sadar satu hal:<br><br>
+      <b>Kamu itu tempat paling tenang yang pernah aku temuin.</b><br><br>
+      Aku gak minta banyak, cukup kamu tahu kalau setiap senyum kamu,
+      selalu jadi alasan kenapa aku semangat lagi hari ini. 💫<br><br>
+      <i>from someone who always smile for you 💙</i>
+    </p>
+  `;
+  spawnConfetti(30);
+}
+
+resetBtn.addEventListener('click',()=>{
+  count=0;
   setCounterText();
-  msg.textContent = `Halo, aku di sini. Klik sekali aja dulu, biar aku tunjukin sesuatu. :)`;
+  msg.textContent='Mulai dari satu klik dulu ya, pelan-pelan aja. :)';
 });
 
-/* hint */
-hintBtn.addEventListener('click', ()=>{
-  showTypingThen(`Kalau kamu peka: coba bilang "yang" di chat nanti. Jangan khawatir, aku gak bakal GR. 😌`);
+hintBtn.addEventListener('click',()=>{
+  showTypingThen('Petunjuk kecil: coba aja klik hatinya sampe sepuluh kali, nanti aku tunjukin sesuatu. 💫');
 });
 
-/* small easter: if they type 'yang' in prompt (optional) */
-document.addEventListener('keydown', (e)=>{
-  // secret: if user types "y" then "a" then "n" then "g" quickly
-  // not necessary; keep simple: double-click heart quickly triggers playful reveal
-});
-
-/* small UX: double-click reveals short note */
-heartBtn.addEventListener('dblclick', ()=> {
-  showTypingThen(`Dbl klik? Oke: aku beneran sayang sama kamu. Bukan main-main. 💌`);
-  spawnConfetti(14);
-});
-
-/* init */
 setCounterText();
 </script>
 </body>
